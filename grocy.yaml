@@ -1,7 +1,6 @@
 services:
   grocy:
     image: lscr.io/linuxserver/grocy:latest
-    network_mode: bridge
     networks:
      - ash-bridge
     container_name: grocy
@@ -16,7 +15,6 @@ services:
       TZ: US/Detroit
   barcode-buddy:
     image: f0rc3/barcodebuddy-docker:latest
-    network_mode: bridge
     networks:
      - ash-bridge
     container_name: barcode-buddy
