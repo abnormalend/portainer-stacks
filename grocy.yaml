@@ -1,0 +1,27 @@
+services:
+  grocy:
+    image: lscr.io/linuxserver/grocy:latest
+    network_mode: bridge
+    container_name: grocy
+    volumes:
+     - /etc/containers/grocy:/config
+    ports:
+     - 9283:80
+    restart: unless-stopped
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: US/Detroit
+  barcode-buddy:
+    image: f0rc3/barcodebuddy-docker:latest
+    network_mode: bridge
+    container_name: barcode-buddy
+    volumes:
+     - /etc/containers/barcode-buddy:/config
+    ports:
+     - 9284:80
+    restart: unless-stopped
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: US/Detroit
