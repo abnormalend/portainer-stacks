@@ -1,0 +1,16 @@
+services:
+  home-assistant:
+    image: homeassistant/home-assistant:stable
+    network_mode: host
+    networks:
+     - ash-bridge
+    container_name: home-assistant
+    volumes:
+     - /etc/home-assistant:/config
+    ports:
+     - 8123:8123
+    restart: unless-stopped
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: US/Detroit
