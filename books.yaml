@@ -1,16 +1,30 @@
 services:
-  calibre-web:
-    image: linuxserver/calibre-web:latest
+  openbooks:
+    image: evanbuss/openbooks
     network_mode: bridge
-    container_name: calibre-web
+    container_name: openbooks
     volumes:
-     - $BOOKSCONFIGDIR:/config
-     - $BOOKSDIR:/books
+     - $CONFIGDIR/openbooks:/config
+     - $BOOKSDIR/openbooks:/books
     ports:
-     - 8083:8083
+     - 8084:80
     restart: unless-stopped
     environment:
       PUID: $UID
       PGID: $GID
       TZ: US/Detroit
-      DOCKER_MODS: linuxserver/calibre-web:calibre
+#   calibre-web:
+#     image: linuxserver/calibre-web:latest
+#     network_mode: bridge
+#     container_name: calibre-web
+#     volumes:
+#      - $BOOKSCONFIGDIR:/config
+#      - $BOOKSDIR:/books
+#     ports:
+#      - 8083:8083
+#     restart: unless-stopped
+#     environment:
+#       PUID: $UID
+#       PGID: $GID
+#       TZ: US/Detroit
+#       DOCKER_MODS: linuxserver/calibre-web:calibre
