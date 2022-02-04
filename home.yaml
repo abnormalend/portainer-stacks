@@ -7,7 +7,7 @@ services:
     tty: true
     stop_signal: SIGINT
     environment:
-      - SESSION_SECRET=D1B8E9A3EE797F1CB61B100FB2DAC920
+      - SESSION_SECRET=Zw#6UXJL2Wl4H00hA*EL
       - ZWAVEJS_EXTERNAL_CONFIG=/usr/src/app/store/.config-db
       - TZ=America/New_York
     networks:
