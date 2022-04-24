@@ -2,6 +2,7 @@
 version: "2.1"
 services:
   organizr:
+    network_mode: bridge
     image: organizr/organizr
     container_name: organizr
     environment:
