@@ -19,6 +19,7 @@ services:
   ombi:
     image: lscr.io/linuxserver/ombi
     container_name: ombi
+    network_mode: bridge
     environment:
       - PUID=109
       - PGID=100
