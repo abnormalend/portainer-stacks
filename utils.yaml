@@ -9,7 +9,7 @@ services:
       - PUID=109
       - PGID=100
       - TZ=US/Detroit
-    volumes
+    volumes:
       - /etc/containers/organizr:/config
     restart: unless-stopped
     labels:
