@@ -13,3 +13,22 @@ services:
     ports:
       - 8181:8181
     restart: unless-stopped
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.tautulli.rule=PathPrefix(`/tautulli{regex:$$|/.*}`)'
+  ombi:
+    image: lscr.io/linuxserver/ombi
+    container_name: ombi
+    environment:
+      - PUID=109
+      - PGID=100
+      - TZ=US/Detroit
+      - BASE_URL=/ombi #optional
+    volumes:
+      - /etc/containers/ombi:/config
+    ports:
+      - 3579:3579
+    restart: unless-stopped
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.ombi.rule=PathPrefix(`/ombi{regex:$$|/.*}`)'
