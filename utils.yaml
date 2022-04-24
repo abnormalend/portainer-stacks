@@ -11,6 +11,8 @@ services:
       - TZ=US/Detroit
     volumes:
       - /etc/containers/organizr:/config
+    ports:
+      - 8080:80
     restart: unless-stopped
     labels:
       - traefik.enable=true
