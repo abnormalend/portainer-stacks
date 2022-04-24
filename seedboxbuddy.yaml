@@ -1,0 +1,13 @@
+---
+version: "2.1"
+services:
+  seedboxbuddy:
+    image: abnormalend/seedboxbuddy
+    container_name: seedboxbuddy
+    environment:
+      - TZ=US/Detroit
+    volumes:
+      - /etc/containers/seedboxbuddy:/config
+      - /media/all/downloads/seedbox:/download
+    restart: unless-stopped
+    network_mode: bridge
