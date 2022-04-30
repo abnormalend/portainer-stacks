@@ -59,6 +59,7 @@ services:
   overseerr:
     image: sctx/overseerr:latest
     container_name: overseerr
+    network_mode: bridge
     environment:
       - LOG_LEVEL=debug
       - TZ=US/Detroit
