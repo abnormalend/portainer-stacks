@@ -56,7 +56,6 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.routers.sonarr.rule=PathPrefix(`/sonarr`)
-      ---
   overseerr:
     image: sctx/overseerr:latest
     container_name: overseerr
