@@ -54,3 +54,26 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.routers.overseerr.rule=PathPrefix(`/overseerr`)
+  sabnzbd:
+    image: ghcr.io/linuxserver/sabnzbd:latest
+    container_name: sabnzbd
+    network_mode: bridge
+    ports:
+      - 8081:8080
+      - 9090:9090
+    environment:
+      - PUID=109
+      - GGID=100
+      - TZ=US/Detroit
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - PS1=$(whoami)@$(hostname):$(pwd)\$
+      - HOME=/config
+      - TERM=xterm
+      - PYTHONIOENCODING=utf-8
+    volumes:
+      - /etc/containers/sabnzbd:/config
+      - /media/14tb/downloads/usenet-incomplete:/incomplete-downloads
+      - /media/14tb/downloads/usenet:/downloads
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.sabnzbd.rule=PathPrefix(`/sabnzbd`)
