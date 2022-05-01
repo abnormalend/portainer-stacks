@@ -33,6 +33,8 @@ services:
     environment:
       - PUID=109
       - PGID=100
+    devices
+      - '/dev/ttyACM1'
     volumes:
       - /etc/containers/home-assistant:/config
       - /etc/localtime:/etc/localtime:ro
