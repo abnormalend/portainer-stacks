@@ -33,7 +33,7 @@ services:
     environment:
       - PUID=109
       - PGID=100
-    devices
+    devices:
       - '/dev/ttyACM1'
     volumes:
       - /etc/containers/home-assistant:/config
