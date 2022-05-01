@@ -72,3 +72,19 @@ services:
       - traefik.enable=true
       - traefik.http.routers.sabnzbd.rule=PathPrefix(`/sabnzbd`)
     restart: unless-stopped
+  nzbhydra2:
+    image: hotio/nzbhydra2:latest
+    container_name: nzbhydra2
+    network_mode: bridge
+    ports:
+      - 5076:5076
+    environment:
+      - PUID=109
+      - GGID=100
+      - TZ=US/Detroit
+    volumes:
+      - /etc/containers/nzbhydra2:/config
+    restart: unless-stopped
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.hydra.rule=PathPrefix(`/hydra`)
