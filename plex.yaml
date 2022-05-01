@@ -15,8 +15,8 @@ services:
       - 8181:8181
     restart: unless-stopped
     labels:
-      - 'traefik.enable=true'
-      - 'traefik.http.routers.tautulli.rule=PathPrefix(`/tautulli{regex:$$|/.*}`)'
+      - traefik.enable=true
+      - traefik.http.routers.tautulli.rule=PathPrefix(`/tautulli`)
   sonarr:
     image: lscr.io/linuxserver/sonarr
     container_name: sonarr
