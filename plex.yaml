@@ -4,6 +4,7 @@ services:
   tautulli:
     image: lscr.io/linuxserver/tautulli
     container_name: tautulli
+    network_mode: bridge
     environment:
       - PUID=109
       - PGID=100
