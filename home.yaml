@@ -34,7 +34,7 @@ services:
       - PUID=109
       - PGID=100
     devices:
-      - '/dev/ttyACM1'
+      - /dev/ttyACM1:/dev/zigbee
     volumes:
       - /etc/containers/home-assistant:/config
       - /etc/localtime:/etc/localtime:ro
