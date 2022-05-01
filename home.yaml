@@ -23,18 +23,21 @@ services:
       - '3000:3000' # port for Z-Wave JS websocket server
 networks:
   zwave:
-
-# services:
-#   home-assistant:
-#     image: homeassistant/home-assistant:stable
-#     network_mode: host
-#     container_name: home-assistant
-#     volumes:
-#      - /etc/home-assistant:/config
-#     ports:
-#      - 8123:8123
-#     restart: unless-stopped
-#     environment:
-#       PUID: 1000
-#       PGID: 1000
-#       TZ: US/Detroit
+  home-assistant:
+    image: homeassistant/home-assistant:stable
+    network_mode: host
+    container_name: home-assistant
+    volumes:
+     - /etc/home-assistant:/config
+    ports:
+     - 8123:8123
+    restart: unless-stopped
+    environment:
+      - PUID=109
+      - PGID=100
+    volumes:
+      - /etc/containers/home-assistant:/config
+      - /etc/localtime:/etc/localtime:ro
+   labels:
+      - traefik.enable=true
+      - traefik.http.routers.home-assistant.rule=PathPrefix(`/ha`)
