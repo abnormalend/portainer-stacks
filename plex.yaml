@@ -39,6 +39,29 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.routers.sonarr.rule=PathPrefix(`/sonarr`)
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    network_mode: bridge
+    ports:
+      - 7878:7878
+    environment:
+      - PUID=109
+      - GGID=100
+      - TZ=US/Detroit
+    volumes:
+      - /etc/containers/radarr:/config
+      - /media/all/movies:/movies
+      - /media/all/kids_movies:/kids
+      - /media/all/kids_movies/disney:/disney
+      - /media/all/grindhouse/features:/grind
+      - /media/all/latenight/movies:/latenight
+      - /media/all/downloads/usenet:/downloads
+      - /dev/rtc:/dev/rtc:ro
+    restart: unless-stopped
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.radarr.rule=PathPrefix(`/radarr`)
   overseerr:
     image: sctx/overseerr:latest
     container_name: overseerr
