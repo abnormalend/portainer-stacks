@@ -2,18 +2,11 @@
 version: "2.1"
 services:
   corekeeper:
-    image: ich777/steamcmd:corekeeper
+    image: cajunbard/corekeeper:latest
     network_mode: bridge
     container_name: corekeeper
-    environment:
-      - GAME_ID=1963720
-      - WORLD_NAME=Core Keeper Test
-      - WORLD_INDEX=0
-      - UID=99
-      - GID=100
     volumes:
-      - /etc/containers/corekeeper/steamcmd:/serverdata/steamcmd
-      - /etc/containers/corekeeper/serverfiles:/serverdata/serverfiles
+      - /etc/containers/corekeeper:/config
     ports:
-      - 8080:80
+      - 27015:27016/udp
     restart: unless-stopped
