@@ -111,3 +111,18 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.routers.hydra.rule=PathPrefix(`/hydra`)
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:develop
+    container_name: prowlarr
+    environment:
+      - PUID=109
+      - PGID=100
+      - TZ=US/Detroit
+    volumes:
+      - /etc/containers/prowlarr:/config
+    ports:
+      - 9696:9696
+    restart: unless-stopped
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.prowlarr.rule=PathPrefix(`/prowlarr`)
