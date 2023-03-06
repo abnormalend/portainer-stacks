@@ -38,7 +38,7 @@ services:
     volumes:
       - /etc/containers/home-assistant:/config
       - /etc/localtime:/etc/localtime:ro
-   mosquitto:
+  mosquitto:
     container_name: mosquitto
     image: eclipse-mosquitto
     restart: unless-stopped
