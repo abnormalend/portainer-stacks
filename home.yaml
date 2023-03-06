@@ -38,6 +38,31 @@ services:
     volumes:
       - /etc/containers/home-assistant:/config
       - /etc/localtime:/etc/localtime:ro
+   mosquitto:
+    container_name: mosquitto
+    image: eclipse-mosquitto
+    restart: unless-stopped
+    ports:
+      - "1883:1883/tcp"
+    environment:
+      - TZ=America/New_York
+    volumes:
+      - /etc/containers/mosquitto/config:/mosquitto/config
+      - /etc/containers/mosquitto/data:/mosquitto/data
+      - /etc/containers/mosquitto/log:/mosquitto/log
+  nodered:
+    container_name: nodered
+    image: nodered/node-red
+    restart: unless-stopped
+    ports:
+      - "1880:1880/tcp"
+    environment:
+      - TZ=America/New_York
+    volumes:
+      - /etc/containers/nodered/data:/data
+    depends_on:
+      - home-assistant
+      - mosquitto
 networks:
   zwave:
 
