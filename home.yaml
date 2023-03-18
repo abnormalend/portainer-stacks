@@ -46,6 +46,8 @@ services:
       - "1883:1883/tcp"
     environment:
       - TZ=America/New_York
+      - PUID=109
+      - PGID=100
     volumes:
       - /etc/containers/mosquitto/config:/mosquitto/config
       - /etc/containers/mosquitto/data:/mosquitto/data
