@@ -60,8 +60,8 @@ services:
       - "1880:1880/tcp"
     environment:
       - TZ=America/New_York
-      - PUID=109
-      - PGID=100
+      - PUID=1000
+      - PGID=1000
     volumes:
       - /etc/containers/nodered/data:/data
     depends_on:
