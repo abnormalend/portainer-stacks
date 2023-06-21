@@ -1,23 +1,6 @@
 ---
 version: "2.1"
 services:
-  heimdall:
-    image: linuxserver/heimdall:latest
-    network_mode: bridge
-    container_name: heimdall
-    environment:
-      - PUID=109
-      - PGID=100
-      - TZ=US/Detroit
-    volumes:
-      - /etc/containers/heimdall:/config
-    ports:
-      - 8080:80
-    restart: unless-stopped
-    labels:
-      - traefik.enable=true
-#       - traefik.http.services.heimdall.loadbalancer.server.port=80
-      - traefik.http.routers.heimdall.rule=PathPrefix(`/`)
   cloudflared:
     container_name: cloudflared
     image: 'cloudflare/cloudflared:${CLOUDFLARED_VERSION}' # version obtained from environment variable
