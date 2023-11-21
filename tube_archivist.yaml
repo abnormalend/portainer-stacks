@@ -15,7 +15,7 @@ services:
       - REDIS_HOST=archivist-redis          # don't add protocol
       - HOST_UID=109
       - HOST_GID=100
-      - TA_HOST=tubearchivist.local         # set your host name
+      - TA_HOST=ash.local         # set your host name
       - TA_USERNAME=tubearchivist           # your initial TA credentials
       - TA_PASSWORD=verysecret              # your initial TA credentials
       - ELASTIC_PASSWORD=verysecret         # set password for Elasticsearch
