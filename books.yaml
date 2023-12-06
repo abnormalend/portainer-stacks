@@ -44,5 +44,5 @@ services:
     environment:
       TZ: America/Detroit
     ports:
-     - 8084:5000 # Change the public port (the first 5000) if you have conflicts with other services
+     - 8085:5000 # Change the public port (the first 5000) if you have conflicts with other services
     restart: unless-stopped
