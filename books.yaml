@@ -46,3 +46,14 @@ services:
     ports:
      - 8085:5000 # Change the public port (the first 5000) if you have conflicts with other services
     restart: unless-stopped
+  email:
+      image: jvmilazz0/kavitaemail:latest
+      container_name: kavita-email
+      environment:
+        PUID: $UID
+        PGID: $GID
+      volumes:
+         - /etc/containers/kavita-email:/app/config
+      ports:
+         - "5003:5003"
+      restart: unless-stopped
