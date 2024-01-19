@@ -56,7 +56,7 @@ services:
       - /media/all/kids_movies/disney:/disney
       - /media/all/grindhouse/features:/grind
       - /media/all/latenight/movies:/latenight
-      - /media/all/classic-movies:/classics
+      - /media/all/classic_movies:/classics
       - /media/all/downloads/usenet:/downloads
       - /dev/rtc:/dev/rtc:ro
     restart: unless-stopped
