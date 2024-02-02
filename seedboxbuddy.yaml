@@ -2,7 +2,7 @@
 version: "2.1"
 services:
   seedboxbuddy:
-    image: abnormalend/seedboxbuddy:deleter
+    image: abnormalend/seedboxbuddy:dev
     container_name: seedboxbuddy
     environment:
       - TZ=US/Detroit
