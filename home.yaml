@@ -25,8 +25,8 @@ services:
     image: homeassistant/home-assistant:stable
     network_mode: host
     container_name: home-assistant
-    ports:
-     - 8123:8123
+    # ports:
+    #  - 8123:8123
     restart: unless-stopped
     environment:
       - PUID=109
