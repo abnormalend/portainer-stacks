@@ -39,6 +39,7 @@ services:
       - /media/all/books/kavita/kids:/kids
       - /media/all/books/kavita/adult:/adult
       - /media/all/books/kavita/tech:/tech
+      - /media/all/books/kavita:/kavita/books
       - /media/all/books/kavita/data:/kavita/config     # Change './data if you want to have the config files in a different place.
                                   # /kavita/config must not be changed
     environment:
