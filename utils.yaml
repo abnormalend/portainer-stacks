@@ -11,3 +11,5 @@ services:
     image: troglobit/inadyn
     container_name: inadyn
     restart: unless-stopped
+    volumes:
+      - /etc/containers/inadyn:/etc
