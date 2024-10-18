@@ -8,16 +8,17 @@ services:
     command: 'tunnel --no-autoupdate run --token ${TOKEN}'
     user: root
     restart: unless-stopped
-  # metube:
-  #   image: ghcr.io/alexta69/metube
-  #   container_name: metube
-  #   restart: unless-stopped
-  #   environment:
-  #     - UID=109
-  #     - GID=100
-  #     - TZ=US/Detroit
-  #     - DARK_MODE=true
-  #   ports:
-  #     - "8082:8081"
-  #   volumes:
-  #     - /media/all/downloads/metube:/downloads
+  inadyn:
+    image: troglobit/inadyn
+    container_name: inadyn
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: data
+        target: /data
+        read_only: true
+      - type: volume
+        source: cache
+        target: /home/nonroot/.cache/inadyn
+volumes:
+  cache:
