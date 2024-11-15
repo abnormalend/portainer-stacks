@@ -141,3 +141,6 @@ services:
     ports:
       - 6246:6246
     restart: unless-stopped
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.maintainerr.rule=PathPrefix(`/maintainerr`)
