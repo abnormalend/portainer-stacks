@@ -58,6 +58,7 @@ services:
       - /media/all/latenight/movies:/latenight
       - /media/all/classic_movies:/classics
       - /media/all/downloads/usenet:/downloads
+      - /media/all/odditorium:/odditorium
       - /dev/rtc:/dev/rtc:ro
     restart: unless-stopped
     labels:
